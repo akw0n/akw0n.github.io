@@ -19,7 +19,7 @@
 		width = canvas.width;
 		height = canvas.height;
 
-		var xPos = width/2, yPos = height/2, baseSpeed = 5, angle = 0, rSpeed = 3, acceleration = 3, xVelocity = 0, yVelocity = 0, fMomentum = 5, bMomentum = 5;
+		var xPos = width/2, yPos = height/2, baseSpeed = 10, angle = 0, rSpeed = 3, xVelocity = 0, yVelocity = 0, fInertia = 10, bInertia = 10;
 
 		var leftPressed = false, rightPressed = false, upPressed = false, downPressed = false;
 
@@ -37,41 +37,41 @@
 				increment(true);
 			}
 			if (upPressed) {
-				if (bMomentum < 10) {
-					bMomentum += .1;
-					yPos += (baseSpeed*Math.sin(toRadians(angle)))/bMomentum;
-					xPos += (baseSpeed*Math.cos(toRadians(angle)))/bMomentum; 
+				if (bInertia < 10) {
+					bInertia += .1;
+					yPos += yVelocity/bInertia;
+					xPos += xVelocity/bInertia; 
 				}
-				if (fMomentum > 1.1) {
-					fMomentum -= .1;
+				if (fInertia > 1.1) {
+					fInertia -= .1;
 				} else {
-					fMomentum = 1;
+					fInertia = 1;
 				}
-				yPos -= (baseSpeed*Math.sin(toRadians(angle)))/fMomentum;
-				xPos -= (baseSpeed*Math.cos(toRadians(angle)))/fMomentum; 
+				yPos -= yVelocity/fInertia;
+				xPos -= xVelocity/fInertia; 
 			} else if (downPressed) {
-				if (fMomentum < 10) {
-					fMomentum += .1;
-					yPos -= (baseSpeed*Math.sin(toRadians(angle)))/fMomentum;
-					xPos -= (baseSpeed*Math.cos(toRadians(angle)))/fMomentum; 
+				if (fInertia < 10) {
+					fInertia += .1;
+					yPos -= yVelocity/fInertia;
+					xPos -= xVelocity/fInertia; 
 				}
-				if (bMomentum > 1.1) {
-					bMomentum -= .1;
+				if (bInertia > 1.1) {
+					bInertia -= .1;
 				} else {
-					bMomentum = 1;
+					bInertia = 1;
 				}
-				yPos += (baseSpeed*Math.sin(toRadians(angle)))/bMomentum;
-				xPos += (baseSpeed*Math.cos(toRadians(angle)))/bMomentum;
+				yPos += yVelocity/bInertia;
+				xPos += xVelocity/bInertia;
 			} else {
-				if (fMomentum < 10) {
-					fMomentum += .1;
-					yPos -= (baseSpeed*Math.sin(toRadians(angle)))/fMomentum;
-					xPos -= (baseSpeed*Math.cos(toRadians(angle)))/fMomentum; 
+				if (fInertia < 10) {
+					fInertia += .1;
+					yPos -= yVelocity/fInertia;
+					xPos -= xVelocity/fInertia; 
 				} 
-				if (bMomentum < 10) {
-					bMomentum += .1;
-					yPos += (baseSpeed*Math.sin(toRadians(angle)))/bMomentum;
-					xPos += (baseSpeed*Math.cos(toRadians(angle)))/bMomentum; 
+				if (bInertia < 10) {
+					bInertia += .1;
+					yPos += yVelocity/bInertia;
+					xPos += xVelocity/bInertia; 
 				}
 			}
 			
