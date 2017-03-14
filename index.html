@@ -37,6 +37,11 @@
 				increment(true);
 			}
 			if (upPressed) {
+				if (bMomentum < 10) {
+					bMomentum += .1;
+					yPos += (baseSpeed*Math.sin(toRadians(angle)))/bMomentum;
+					xPos += (baseSpeed*Math.cos(toRadians(angle)))/bMomentum; 
+				}
 				if (fMomentum > 1.1) {
 					fMomentum -= .1;
 				} else {
@@ -45,6 +50,11 @@
 				yPos -= (baseSpeed*Math.sin(toRadians(angle)))/fMomentum;
 				xPos -= (baseSpeed*Math.cos(toRadians(angle)))/fMomentum; 
 			} else if (downPressed) {
+				if (fMomentum < 10) {
+					fMomentum += .1;
+					yPos -= (baseSpeed*Math.sin(toRadians(angle)))/fMomentum;
+					xPos -= (baseSpeed*Math.cos(toRadians(angle)))/fMomentum; 
+				}
 				if (bMomentum > 1.1) {
 					bMomentum -= .1;
 				} else {
