@@ -71,6 +71,8 @@ Nation.Country.updateGold = function() {
 	var defGold = this.military * Nation.MAINTENANCE_COST_MILITARY_PER_UNIT;
 	var netGold = genGold - defGold;
 
+	this.gold += netGold;
+
 	var logMessage = "Generating " + genGold + " gold per year\nSpending " + defGold + " gold per year on military\nNet gold generation: " + netGold + "\n";
 	document.getElementById("log").innerHTML += logMessage;
 	document.getElementById("log").scrollTop = document.getElementById("log").scrollHeight;
