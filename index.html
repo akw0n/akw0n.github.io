@@ -9,58 +9,44 @@
 <body>
   <script src="Country.js"></script>
   <script src="Game.js"></script>
-  <button type="button" id = "next" onclick="Nation.Game.updateGame()">Next</button>
 
+  <h1>Nation.io</h1>
+  <h3>A Game By Albert Kwon</h3>
+
+  <div class="stats">
+    <span id="stat"> Year: <span id="year">0</span></span>
+
+
+    <span id="stat"> Population: <span id="population">10</span></span>
+
+
+    <span id="stat"> Territory: <span id="territory">5</span></span>
+
+
+    <span id="stat"> Food: <span id="food">50</span></span>
+
+
+    <span id="stat"> Gold: <span id="gold">50</span></span>
+
+
+    <span id="stat"> Military: <span id="military">1</span></span>
+  </div>
+  
   <div class="shop"> 
-    <ul>
-      <li>
-        <button type="button" id = "purchaseTerritory" onclick="Nation.Country.purchaseTerritory()">Purchase Territory (1,000 Gold)</button>   
-      </li>
-
-      <li>
-        <button type="button" id = "purchaseBasket" onclick="Nation.Country.purchaseFood(10)">Purchase Basket of Food (100 Gold)</button>
-      </li>
-
-      <li>
-        <button type="button" id = "purchaseBundle" onclick="Nation.Country.purchaseFood(100)">Purchase Bundle of Food (1,000 Gold)</button>
-      </li>
-
-      <li>
-        <button type="button" id = "purchaseWagon" onclick="Nation.Country.purchaseFood(1000)">Purchase Wagon of Food (10,000 Gold)</button>
-      </li>
-
-      <li>
-        <button type="button" id = "purchaseMilitaryUnit" onclick="Nation.Country.purchaseMilitaryUnit(1)">Purchase Military Unit (10 Gold)</button>     
-      </li>
-
-      <li>
-        <button type="button" id = "purchaseMilitarySquad" onclick="Nation.Country.purchaseMilitaryUnit(10)">Purchase Military Squad (100 Gold) </button>     
-      </li>
-
-      <li>
-        <button type="button" id = "purchaseMilitaryPlatoon" onclick="Nation.Country.purchaseMilitaryUnit(50)">Purchase Military Platoon (500 Gold) </button>    
-      </li>
-
-      <li> 
-        <button type="button" id = "purchaseMilitaryCompany" onclick="Nation.Country.purchaseMilitaryUnit(100)">Purchase Military Company (1,000 Gold) </button>     
-      </li>
-
-      <li>
-        <button type="button" id = "purchaseMilitaryBatallion" onclick="Nation.Country.purchaseMilitaryUnit(1000)">Purchase Military Batallion (10,000 Gold) </button>    
-      </li>
+    <ul id="shop">
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseTerritory()">Purchase Territory<br /> (1,000 Gold)</button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseFood(10)">Purchase Basket of Food<br /> (100 Gold)</button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseFood(100)">Purchase Bundle of Food <br />(1,000 Gold)</button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseFood(1000)">Purchase Wagon of Food <br />(10,000 Gold)</button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseMilitaryUnit(1)">Purchase Military Unit <br />(10 Gold)</button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseMilitaryUnit(10)">Purchase Military Squad <br />(100 Gold) </button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseMilitaryUnit(50)">Purchase Military Platoon <br />(500 Gold) </button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseMilitaryUnit(100)">Purchase Military Company <br />(1,000 Gold) </button></li>
+      <li><button type="button" id = "shopbutton" onclick="Nation.Country.purchaseMilitaryUnit(1000)">Purchase Military Batallion <br />(10,000 Gold) </button></li>
     </ul>
   </div>   
 
-  <div class="stats">
-    <ul>
-      <li><p> Year: <span id="year">(Year)</span></p></li>
-      <li><p> Population: <span id="population">(Population)</span></p></li>
-      <li><p> Territory: <span id="territory">(Territory)</span></p></li>
-      <li><p> Food: <span id="food">(Food)</span></p></li>
-      <li><p> Gold: <span id="gold">(Gold)</span></p></li>
-      <li><p> Military: <span id="military">(Military)</span></p></li>
-    </ul>
-  </div>
+  <div class="next"> <button type="button" id = "next" onclick="Nation.Game.updateGame()">Next</button></div>
 
   <div class="log">
     <textarea id = "log" rows="10" cols="100" readonly></textarea>
