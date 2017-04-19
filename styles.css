@@ -1,0 +1,68 @@
+html {
+	font-family: "Courier New", Courier, monospace;
+}
+
+h1, h3 {
+	text-align: center;
+}
+
+div.shop {
+    width: 50%;
+    margin: 0 auto;
+    border: 5px solid #000;
+
+}
+
+div.stats {
+	background-color: #000;
+    color: white;
+    padding: 16px;
+    font-size: 12px;
+    border: none;
+    text-align: center;
+    line-height: 200%;
+    word-spacing: 50px;
+    margin: 25px;
+}
+
+#stat {
+	width: 100px;
+}
+
+textarea {
+    display: block;
+    margin: 0 auto;
+    font-family: "Courier New", Courier, monospace;
+}
+
+button {
+	font-family: "Courier New", Courier, monospace;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+div.next {
+	text-align: center;
+	margin: 25px;
+
+}
+
+button#next {
+	border: none;
+	background-color: black;
+	font-size: 24px;
+	color: white;
+}
+
+button#shopbutton {
+	background-color: white;
+}
+
+li {
+	width: 125px;
+	display: inline-block;
+	margin: 10px;
+
+}
