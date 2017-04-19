@@ -25,8 +25,8 @@ Nation.Country.attack = function() {
 	var randInt = getRandomInt(0,100);
 	var enemyStrength = Nation.BASE_ENEMY_POWER + this.year;
 	var randMultiplier = Math.random();
-	if (randMultiplier > .5) {
-		enemyStrength *= randMultiplier;
+	if (randMultiplier > .3) {
+		enemyStrength *= Math.round((1/randMultiplier) * 100) / 100
 	}
 	var logMessage = "";
 	if (randInt <= Nation.PROBABILITY_OF_ATTACK + this.territory/2) {
