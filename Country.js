@@ -24,11 +24,17 @@ Nation.Country.attack = function() {
 	var attack = false;
 	var randInt = getRandomInt(0,100);
 	var enemyStrength = Nation.BASE_ENEMY_POWER + this.year;
+	var randMultiplier = Math.random();
+	if (randMultiplier > .5) {
+		enemyStrength *= randMultiplier;
+	}
 	var logMessage = "";
 	if (randInt <= Nation.PROBABILITY_OF_ATTACK + this.territory/2) {
 		attack = true;
 		this.military -= enemyStrength/4;
-		logMessage = "YOU HAVE BEEN ATTACKED\n" + "Enemy Strength: " + enemyStrength + "\nYour military has been reduced by " + enemyStrength/4 + " units\n";
+		this.food -= enemyStrength/10;
+		this.gold -= enemyStrength/10;
+		logMessage = "YOU HAVE BEEN ATTACKED\n" + "Enemy Strength: " + enemyStrength + "\nYour military has been reduced by " + enemyStrength/4 + " units\nYour food and gold has been looted by " + enemyStrength/10 " units";
 		if (this.military < 0) {
 			this.population += this.military;
 			this.territory--;
