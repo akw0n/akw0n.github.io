@@ -34,7 +34,7 @@ Nation.Country.attack = function() {
 		this.military -= enemyStrength/4;
 		this.food -= enemyStrength/10;
 		this.gold -= enemyStrength/10;
-		logMessage = "YOU HAVE BEEN ATTACKED\n" + "Enemy Strength: " + enemyStrength + "\nYour military has been reduced by " + enemyStrength/4 + " units\nYour food and gold has been looted by " + enemyStrength/10 + " units";
+		logMessage = "YOU HAVE BEEN ATTACKED\n" + "Enemy Strength: " + enemyStrength + "\nYour military has been reduced by " + enemyStrength/4 + " units\nYour food and gold has been looted by " + enemyStrength/10 + " units\n";
 		if (this.military < 0) {
 			this.population += this.military;
 			this.territory--;
