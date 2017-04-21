@@ -75,7 +75,7 @@ Nation.Country.updatePopulation = function() {
 		this.population++;
 		this.food -= Nation.FOOD_REQUIRED_TO_INCREASE_POP;
 		
-		this.population = Math.round(this.popullation);
+		this.population = Math.round(this.population);
 
 		document.getElementById("log").innerHTML += logMessage;
 		document.getElementById("log").scrollTop = document.getElementById("log").scrollHeight;
