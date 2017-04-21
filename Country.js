@@ -40,6 +40,7 @@ Nation.Country.attack = function() {
 		logMessage = "YOU HAVE BEEN ATTACKED\n" + "Enemy Strength: " + enemyStrength + "\nYour military has been reduced by " + enemyStrength/4 + " units\nYour food and gold has been looted by " + enemyStrength/10 + " units\n";
 		if (this.military < 0) {
 			this.population += this.military;
+			this.population = Math.round(this.population);
 			this.territory--;
 			logMessage += "Your population has been reduced by " + this.military * -1 + " units\n" + "You have lost 1 territory\n";
 			this.military = 0;
