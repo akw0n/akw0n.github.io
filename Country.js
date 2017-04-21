@@ -34,10 +34,17 @@ Nation.Country.attack = function() {
 	var logMessage = "";
 	if (randInt <= Nation.PROBABILITY_OF_ATTACK + this.territory/2) {
 		attack = true;
-		this.military -= enemyStrength/8;
-		this.food -= enemyStrength/10;
-		this.gold -= enemyStrength/10;
-		logMessage = "YOU HAVE BEEN ATTACKED\n" + "Enemy Strength: " + enemyStrength + "\nYour military has been reduced by " + enemyStrength/4 + " units\nYour food and gold has been looted by " + enemyStrength/10 + " units\n";
+		var enemyLoot = enemyStrength/10;
+		var militaryLoss = enemyStrength/8;
+		
+		if (enemyStrength > this.military) {
+			this.food -= enemyLoot;
+			this.gold -= enemyLoot;
+		}
+		
+		this.military -= militaryLoss;
+
+		logMessage = "YOU HAVE BEEN ATTACKED\n" + "Enemy Strength: " + enemyStrength + "\nYour military has been reduced by " + militaryLoss + " units\nYour food and gold has been looted by " + enemyLoot + " units\n";
 		if (this.military < 0) {
 			this.population += this.military;
 			this.population = Math.round(this.population);
