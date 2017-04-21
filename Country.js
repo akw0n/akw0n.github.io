@@ -27,7 +27,7 @@ Nation.Country.attack = function() {
 	var randInt = getRandomInt(0,100);
 	var enemyStrength = Nation.BASE_ENEMY_POWER + this.year;
 	var randMultiplier = Math.random();
-	if (randMultiplier > .3) {
+	if (randMultiplier > .5) {
 		enemyStrength *= 1/randMultiplier;
 		enemyStrength = Math.round(enemyStrength);
 	}
