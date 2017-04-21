@@ -14,6 +14,15 @@ Nation.FOOD_REQUIRED_TO_INCREASE_POP = 50;
 
 Nation.Game = {};
 
+Nation.Game.reset = function () {
+	var year = Nation.Country.year;
+	var logMessage = "\nYear: " + year + " \nGame was reset\n";
+	Nation.Game.init();
+	alert(logMessage);
+	document.getElementById("log").innerHTML += logMessage;
+	document.getElementById("log").scrollTop = document.getElementById("log").scrollHeight;
+}
+
 Nation.Game.init = function () {
 	this.Country = Nation.Country;
 	this.Country.init({
@@ -24,6 +33,7 @@ Nation.Game.init = function () {
 		gold: 50,
 		military: 1,
 	});
+	Nation.Game.displayStats();
 }
 
 Nation.Game.updateGame = function () {	

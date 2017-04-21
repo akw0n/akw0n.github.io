@@ -14,9 +14,11 @@ Nation.Country.init = function(stats) {
 
 Nation.Country.checkIfLost = function() {
 	if (this.population <= 0 || this.territory <= 0) {
-		var logMessage = "\nYou lost\n";
+		var logMessage = "\nYou lost\nStats will now be reset to Year 0\n";
 		document.getElementById("log").innerHTML += logMessage;
 		document.getElementById("log").scrollTop = document.getElementById("log").scrollHeight;
+		alert(logMessage);
+		Nation.Game.init();
 	}
 }
 
@@ -26,7 +28,8 @@ Nation.Country.attack = function() {
 	var enemyStrength = Nation.BASE_ENEMY_POWER + this.year;
 	var randMultiplier = Math.random();
 	if (randMultiplier > .3) {
-		enemyStrength *= Math.round((1/randMultiplier) * 100) / 100
+		enemyStrength *= 1/randMultiplier;
+		enemyStrength = Math.round(enemyStrength);
 	}
 	var logMessage = "";
 	if (randInt <= Nation.PROBABILITY_OF_ATTACK + this.territory/2) {
@@ -41,7 +44,9 @@ Nation.Country.attack = function() {
 			logMessage += "Your population has been reduced by " + this.military * -1 + " units\n" + "You have lost 1 territory\n";
 			this.military = 0;
 		}
+		alert(logMessage);
 	}
+
 
 	document.getElementById("log").innerHTML += logMessage;
 	document.getElementById("log").scrollTop = document.getElementById("log").scrollHeight;
@@ -55,7 +60,10 @@ Nation.Country.updateYear = function() {
 
 Nation.Country.updateFood = function() {
 	var netFood = this.population * (Nation.FOOD_GENERATED_PER_POP_PER_YEAR - Nation.FOOD_REQUIRED_PER_POPULATION);
+
 	this.food += netFood;
+	this.food = Math.round(this.food);
+
 	var logMessage = "Generating " + netFood + " food per year\n";
 	document.getElementById("log").innerHTML += logMessage;
 	document.getElementById("log").scrollTop = document.getElementById("log").scrollHeight;
@@ -78,6 +86,8 @@ Nation.Country.updateGold = function() {
 	var netGold = genGold - defGold;
 
 	this.gold += netGold;
+
+	this.gold = Math.round(this.gold);
 
 	var logMessage = "Generating " + genGold + " gold per year\nSpending " + defGold + " gold per year on military\nNet gold generation: " + netGold + "\n";
 	document.getElementById("log").innerHTML += logMessage;
