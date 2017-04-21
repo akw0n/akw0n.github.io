@@ -35,7 +35,7 @@ Nation.Country.attack = function() {
 	if (randInt <= Nation.PROBABILITY_OF_ATTACK + this.territory/2) {
 		attack = true;
 		var enemyLoot = enemyStrength/10;
-		var militaryLoss = enemyStrength/8;
+		var militaryLoss = enemyStrength/2;
 		
 		if (enemyStrength > this.military) {
 			this.food -= enemyLoot;
